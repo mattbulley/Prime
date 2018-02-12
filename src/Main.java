@@ -18,7 +18,7 @@ public class Main{
             print(input);
 
             if(input.equalsIgnoreCase(start)){
-                primes();
+                primesL();
             }
             if(input.equalsIgnoreCase(quit)){
                 System.exit(0);
@@ -71,6 +71,40 @@ public class Main{
                 counter++;
                 System.out.print(counter + ") - ");
                 print(Float.toString(integers[i]));
+            }
+
+        }
+    }
+    
+    public static void primesL(){
+        int counter = 0;
+
+        Long[] integers = new Long[1000000000];
+        Long[] integers2 = new Long[1000000000];
+        for(int i = 0; i < integers.length; i++){
+           
+    
+        	integers[i] = (long) i;
+
+
+            if(checkPrime(integers[i])) {
+                counter++;
+                System.out.print(counter + ") - ");
+                print(Float.toString(integers[i]));
+            }
+
+        }
+        
+        for(int i = 0; i < integers.length; i++){
+            
+            
+        	integers2[i] = (long) i * 2;
+
+
+            if(checkPrime(integers2[i])) {
+                counter++;
+                System.out.print(counter + ") - ");
+                print(Float.toString(integers2[i]));
             }
 
         }
