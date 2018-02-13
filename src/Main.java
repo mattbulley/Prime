@@ -85,27 +85,23 @@ public class Main{
     
     public static void primesL(){
         int counter = 0;
-        int arraySize = 1000000;
-        Long[] integers = new Long[arraySize];
-        int millions = 100;
-        long count = 0;
-        long countPlus = 0;
+        int million = 1000000;
+       // Long[] integers = new Long[arraySize];
+        int millions = 1000;
    
         for(int j = 0; j < millions ; j++) {
         	
-	        for(int i = 0; i < integers.length; i++){
-	        	Long L = (long) (i + (integers.length * j));
+	        for(Long i = 0L; i < millions * million; i++){
+	        	Long L = (long) (i + (millions * million * j));
 	        	
-	        	integers[i] = L;
-	        	 count++;
+	        	 
 	        	
-	        	 System.out.print(L + " ");
-	        	 print("");
+	        	 
 	        	
-	            if(checkPrime(integers[i])) {
+	            if(checkPrime(L)) {
 	                counter++;
 	                
-	                System.out.print(L + " ");  print(Float.toString(integers[i]));
+	              // System.out.print(L + " ");  print(Float.toString(L));
 	                
 	            }
 	
