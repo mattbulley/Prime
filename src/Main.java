@@ -6,6 +6,7 @@ public class Main{
    public static String input;
    public static String start = "start";
    public static String quit = "quit";
+   public static String test = "test";
    public static Long iterations = 2000000000L;
 
     public static void main(String[] args) {
@@ -18,7 +19,13 @@ public class Main{
             print(input);
 
             if(input.equalsIgnoreCase(start)){
+            	print("Calculating");
                 primesL();
+            }
+            
+            if(input.equalsIgnoreCase(test)){
+            	print("test");
+                print(Boolean.toString(checkPrime(20000003)));
             }
             if(input.equalsIgnoreCase(quit)){
                 System.exit(0);
@@ -65,7 +72,7 @@ public class Main{
         int[] integers = new int[20000];
         for(int i = 0; i < integers.length; i++){
             integers[i] = i;
-
+           
 
             if(checkPrime(integers[i])) {
                 counter++;
@@ -78,47 +85,46 @@ public class Main{
     
     public static void primesL(){
         int counter = 0;
-
-        Long[] integers = new Long[1000000000];
-        Long[] integers2 = new Long[1000000000];
-        for(int i = 0; i < integers.length; i++){
-           
-    
-        	integers[i] = (long) i;
-
-
-            if(checkPrime(integers[i])) {
-                counter++;
-                System.out.print(counter + ") - ");
-                print(Float.toString(integers[i]));
-            }
-
+        int arraySize = 1000000;
+        Long[] integers = new Long[arraySize];
+        int millions = 100;
+        long count = 0;
+        long countPlus = 0;
+   
+        for(int j = 0; j < millions ; j++) {
+        	
+	        for(int i = 0; i < integers.length; i++){
+	        	Long L = (long) (i + (integers.length * j));
+	        	
+	        	integers[i] = L;
+	        	 count++;
+	        	
+	        	 System.out.print(L + " ");
+	        	 print("");
+	        	
+	            if(checkPrime(integers[i])) {
+	                counter++;
+	                
+	                System.out.print(L + " ");  print(Float.toString(integers[i]));
+	                
+	            }
+	
+	        }
+	        
+	       
         }
         
-        for(int i = 0; i < integers.length; i++){
-            
-            
-        	integers2[i] = (long) i * 2;
-
-
-            if(checkPrime(integers2[i])) {
-                counter++;
-                System.out.print(counter + ") - ");
-                print(Float.toString(integers2[i]));
-            }
-
-        }
+        print(Integer.toString(counter)  + " primes");
+   
     }
 
-    public static boolean checkPrime(float number) {
-
-
-
+    public static boolean checkPrime(long number)
+    {
         if(number <= 1){
             return false;
         } else if(number <= 3) {
             return true;
-        } else if (number % 2 == 0.0f || number % 3 == 0.0f){
+        } else if (number % 2 == 0L || number % 3 == 0L){
 
             return false;
         }
@@ -126,16 +132,11 @@ public class Main{
 
         for(int i = 5; (i * i) <= number; i++){
 
-            if(number % i == 0.0f || number % (i+2) == 0.0f){
+            if(number % i == 0L || number % (i+2) == 0L){
 
                 return false;
-
             }
-
-
         }
-
-
         return true;
     }
 }
