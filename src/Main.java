@@ -7,7 +7,7 @@ public class Main{
    public static String start = "start";
    public static String quit = "quit";
    public static String test = "test";
-   public static Long iterations = 2000000000L;
+   public static long iterations = 2000000000L;
 
     public static void main(String[] args) {
 	// write your code here
@@ -19,8 +19,10 @@ public class Main{
             print(input);
 
             if(input.equalsIgnoreCase(start)){
-            	print("Calculating");
-                primesL();
+            	print("Input integer (millions): ");
+            	
+            	input = userInput();
+                primesL(Integer.parseInt(input));
             }
             
             if(input.equalsIgnoreCase(test)){
@@ -83,30 +85,32 @@ public class Main{
         }
     }
     
-    public static void primesL(){
+    public static void primesL(int input){
         int counter = 0;
         int million = 1000000;
        // Long[] integers = new Long[arraySize];
-        int millions = 1000;
+        int millions = input;
+        long update = 0L;
    
-        for(int j = 0; j < millions ; j++) {
+        for(int j = 0; j < input ; j++) {
         	
-	        for(Long i = 0L; i < millions * million; i++){
-	        	Long L = (long) (i + (millions * million * j));
-	        	
-	        	 
+	        for(long i = 1L; i < million; i += 2L){
+	        	long L = (long) (i + ( million * j));
+	        	update = L;
 	        	
 	        	 
 	        	
 	            if(checkPrime(L)) {
 	                counter++;
 	                
-	              // System.out.print(L + " ");  print(Float.toString(L));
+	              
 	                
 	            }
 	
 	        }
 	        
+	      
+	        System.out.print(update + " ");  print(Float.toString(update));
 	       
         }
         
