@@ -8,6 +8,7 @@ public class Main{
    public static String quit = "quit";
    public static String test = "test";
    public static long iterations = 2000000000L;
+   public static long[] primes = new long[100000000];
 
     public static void main(String[] args) {
 	// write your code here
@@ -101,7 +102,9 @@ public class Main{
 	        	 
 	        	
 	            if(checkPrime(L)) {
-	                counter++;
+	            	
+	                primes[counter] = L;
+	            	counter++;
 	                
 	              
 	                
@@ -132,7 +135,7 @@ public class Main{
 
         for(int i = 5; (i * i) <= number; i++){
 
-            if(number % i == 0L || number % (i+2) == 0L){
+            if(number % primes[i] /* i */ == 0L || number % (primes[i]+2) == 0L){
 
                 return false;
             }
